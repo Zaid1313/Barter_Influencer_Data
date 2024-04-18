@@ -21,7 +21,6 @@ const getSheetData = async (sheetId) => {
     try {
         const authClient = await authObj.getClient()
         const drive = new drive_v3.Drive({ auth: authClient })
-        // const sheetId = sheetLink.split('/')[5];
         await drive.files.get({ fileId: sheetId })
         const { data } = await drive.files.export(
           { fileId: sheetId, mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', alt: 'media' },
